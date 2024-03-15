@@ -40,6 +40,7 @@ pub fn App() -> impl IntoView {
                     <Route path="" view=HomePage/>
                     <Route path="/login" view=LoginPage/>
                     <Route path="/users" view=UserPage/>
+                    <Route path="/chat" view=ChatPage/>
                 </Routes>
             </main>
         </Router>
@@ -59,7 +60,7 @@ fn HomePage() -> impl IntoView {
     let on_click = move |_| set_count.update(|count| *count += 1);
 
     view! {
-        <h1>"Home"</h1>
+        <h1 style={ "color: blue" }>"Home"</h1>
         <p>"Hello world"</p>
         <br></br>
         <p>"Hello world " {move || count.get() * 2}</p>
@@ -199,5 +200,16 @@ fn LoginPage() -> impl IntoView {
         </Transition>
 
       </div>
+    }
+}
+
+/// Renders the chat page.
+#[component]
+fn ChatPage() -> impl IntoView {
+    // TODO: Add text box
+    // TODO: Make text global, ie send it to the server
+    // TODO: Create a sqlite db or some other db
+    view! {
+        <h1>"Chat"</h1>
     }
 }
